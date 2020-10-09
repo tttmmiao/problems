@@ -18,4 +18,35 @@
 
     ```
    
+   
+# maven插件
+## maven-antrun-plugin
+* run ant tasks. 
+* example
+    ```text
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <taskdef name="classModel" classpathref="maven.compile.classpath"
+                                         classname="com.xxx.yyy.zzz.ClassModelMetaDataAntTask">
+                                </taskdef>
+                                <classModel/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    ```
   
